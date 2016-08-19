@@ -34,13 +34,13 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_FOLDER)/init.recovery.otterx.rc:/root/init.recovery.otterx.rc \
     $(DEVICE_FOLDER)/ueventd.otterx.rc:/root/ueventd.otterx.rc
 
-# Prebuilt system/bin
-PRODUCT_COPY_FILES += \
-    $(DEVICE_FOLDER)/prebuilt/bin/fix-mac.sh:/system/bin/fix-mac.sh
-
 # Prebuilt system/etc
 PRODUCT_COPY_FILES += \
     $(DEVICE_FOLDER)/prebuilt/etc/firmware/ducati-m3.512MB.bin:/system/etc/firmware/ducati-m3.512MB.bin
+
+# MAC address fix
+PRODUCT_PACKAGES += \
+    fix-mac.sh
 
 # Misc
 PRODUCT_PACKAGES += \
