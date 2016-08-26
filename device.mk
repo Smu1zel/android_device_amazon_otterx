@@ -130,6 +130,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(DEVICE_FOLDER)/ilitek_i2c.idc:/system/usr/idc/ilitek_i2c.idc
 
+# Media configs
+PRODUCT_COPY_FILES += \
+    $(DEVICE_FOLDER)/media_codecs.xml:/system/etc/media_codecs.xml \
+    $(DEVICE_FOLDER)/media_profiles.xml:/system/etc/media_profiles.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:system/etc/media_codecs_google_video_le.xml
 
 # Misc / Testing
 PRODUCT_PACKAGES += \
