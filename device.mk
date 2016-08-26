@@ -110,6 +110,11 @@ PRODUCT_PACKAGES += \
     fsck.f2fs \
     fibmap.f2fs
 
+# Audio config files
+PRODUCT_COPY_FILES += \
+    $(DEVICE_FOLDER)/audio_policy.conf:/system/etc/audio_policy.conf \
+    $(DEVICE_FOLDER)/mixer_paths.xml:/system/etc/mixer_paths.xml
+
 # Audio Support
 PRODUCT_PACKAGES += \
     libaudioutils \
