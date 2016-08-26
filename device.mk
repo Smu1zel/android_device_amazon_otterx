@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 
+DEVICE_FOLDER := device/amazon/otterx
+
 #ifeq ($(TARGET_PREBUILT_KERNEL),)
 #LOCAL_KERNEL := $(DEVICE_FOLDER)-kernel/kernel
 #else
@@ -22,5 +24,13 @@
 
 #PRODUCT_COPY_FILES := \
 #	$(LOCAL_KERNEL):kernel
+
+# Rootfs
+PRODUCT_COPY_FILES += \
+    $(DEVICE_FOLDER)/fstab.otterx:/root/fstab.otterx \
+    $(DEVICE_FOLDER)/init.otterx.rc:/root/init.otterx.rc \
+    $(DEVICE_FOLDER)/init.otterx.usb.rc:/root/init.otterx.usb.rc \
+    $(DEVICE_FOLDER)/init.recovery.otterx.rc:/root/init.recovery.otterx.rc \
+    $(DEVICE_FOLDER)/ueventd.otterx.rc:/root/ueventd.otterx.rc
 
 $(call inherit-product-if-exists, vendor/amazon/otterx/device-vendor.mk)

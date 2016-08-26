@@ -1,0 +1,57 @@
+on init
+    export PATH /sbin:/vendor/bin:/system/sbin:/system/bin:/system/xbin
+    export LD_LIBRARY_PATH .:/sbin
+    loglevel 7
+
+on fs
+    symlink /dev/block/platform/omap_hsmmc.1 /dev/block/bootdevice
+
+on boot
+#   mkdir /dev/usb-ffs 0770 shell shell
+#   mkdir /dev/usb-ffs/adb 0770 shell shell
+#   mount configfs none /config
+#   mkdir /config/usb_gadget/g1 0770 shell shell
+#   write /config/usb_gadget/g1/idVendor 0x1949
+#   write /config/usb_gadget/g1/idProduct 0x0006
+#   write /config/usb_gadget/g1/bcdDevice 0x0223
+#   write /config/usb_gadget/g1/bcdUSB 0x0200
+#   mkdir /config/usb_gadget/g1/strings/0x409 0770
+#   write /config/usb_gadget/g1/strings/0x409/serialnumber "0123456789"
+#   write /config/usb_gadget/g1/strings/0x409/manufacturer "Amazon"
+#   write /config/usb_gadget/g1/strings/0x409/product "ADB Gadget"
+#   mkdir /config/usb_gadget/g1/functions/accessory.gs2
+#   mkdir /config/usb_gadget/g1/functions/audio_source.gs3
+#   mkdir /config/usb_gadget/g1/functions/ffs.adb
+#   mkdir /config/usb_gadget/g1/functions/mtp.gs0
+#   mkdir /config/usb_gadget/g1/functions/ptp.gs1
+#   mkdir /config/usb_gadget/g1/functions/rndis.gs4
+#   write /config/usb_gadget/g1/functions/rndis.gs4/wceis 1
+#   mkdir /config/usb_gadget/g1/functions/midi.gs5
+#   mkdir /config/usb_gadget/g1/configs/b.1 0770 shell shell
+#   mkdir /config/usb_gadget/g1/configs/b.1/strings/0x409 0770 shell shell
+#   write /config/usb_gadget/g1/os_desc/b_vendor_code 0x1
+#   write /config/usb_gadget/g1/os_desc/qw_sign "MSFT100"
+#   write /config/usb_gadget/g1/configs/b.1/MaxPower 500
+#   symlink /config/usb_gadget/g1/configs/b.1 /config/usb_gadget/g1/os_desc/b.1
+#   mount functionfs adb /dev/usb-ffs/adb uid=2000,gid=2000
+#   setprop sys.usb.configfs 1
+#   setprop sys.usb.controller "f72c0000.usb"
+
+    # start services
+    start logd
+
+service logd /sbin/logd
+    socket logd stream 0666 logd logd
+    socket logdr seqpacket 0666 logd logd
+    socket logdw dgram 0222 logd logd
+    seclabel u:r:logd:s0
+    disabled
+
+service console /sbin/sh
+    console
+    seclabel u:r:shell:s0
+    disabled
+
+on property:ro.debuggable=1
+    start console
+
