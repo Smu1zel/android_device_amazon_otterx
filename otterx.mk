@@ -21,3 +21,6 @@ PRODUCT_DEVICE := otterx
 PRODUCT_BRAND := Android
 PRODUCT_MODEL := otterx
 PRODUCT_MANUFACTURER := amazon
+
+PRODUCT_PACKAGES += \
+    Launcher3
