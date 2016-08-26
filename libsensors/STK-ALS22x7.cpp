@@ -19,6 +19,7 @@
 #include <errno.h>
 #include <math.h>
 #include <poll.h>
+#include <string.h>
 #include <unistd.h>
 #include <dirent.h>
 #include <sys/select.h>
@@ -42,7 +43,7 @@ STK_ALS22x7Sensor::STK_ALS22x7Sensor()
 STK_ALS22x7Sensor::~STK_ALS22x7Sensor() {
 }
 
-int STK_ALS22x7Sensor::enable(int32_t handle, int en)
+int STK_ALS22x7Sensor::enable(__unused int32_t handle, int en)
 {
     int err = 0;
 

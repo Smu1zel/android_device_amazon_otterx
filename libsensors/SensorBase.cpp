@@ -18,6 +18,7 @@
 #include <errno.h>
 #include <math.h>
 #include <poll.h>
+#include <string.h>
 #include <unistd.h>
 #include <dirent.h>
 #include <sys/select.h>
@@ -68,7 +69,7 @@ int SensorBase::getFd() const {
     return data_fd;
 }
 
-int SensorBase::setDelay(int32_t handle, int64_t ns) {
+int SensorBase::setDelay(__unused int32_t handle, __unused int64_t ns) {
     return 0;
 }
 

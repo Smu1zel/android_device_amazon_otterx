@@ -54,7 +54,7 @@ static const struct sensor_t sSensorList[] = {
 static int open_sensors(const struct hw_module_t* module, const char* name,
         struct hw_device_t** device);
 
-static int sensors__get_sensors_list(struct sensors_module_t* module,
+static int sensors__get_sensors_list(__unused struct sensors_module_t* module,
         struct sensor_t const** list)
 {
     *list = sSensorList;
@@ -80,7 +80,7 @@ struct sensors_module_t HAL_MODULE_INFO_SYM = {
 
 /*****************************************************************************/
 
-static int open_sensors(const struct hw_module_t* module, const char* name,
+static int open_sensors(const struct hw_module_t* module, __unused const char* name,
         struct hw_device_t** device)
 {
     return init_nusensors(module, device);

@@ -20,6 +20,7 @@
 #include <poll.h>
 #include <unistd.h>
 #include <dirent.h>
+#include <string.h>
 #include <stdlib.h>
 #include <sys/select.h>
 
@@ -81,7 +82,7 @@ int BMA250Sensor::enable(int32_t handle, int en)
     return err;
 }
 
-int BMA250Sensor::setDelay(int32_t handle, int64_t ns)
+int BMA250Sensor::setDelay(__unused int32_t handle, int64_t ns)
 {
     int err = 0;
 
