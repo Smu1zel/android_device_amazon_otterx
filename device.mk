@@ -30,6 +30,8 @@ PRODUCT_AAPT_PREF_CONFIG := mdpi
 # A list of dpis to select prebuilt apk, in precedence order.
 PRODUCT_AAPT_PREBUILT_DPI := mdpi hdpi xhdpi
 
+# Device overlay
+DEVICE_PACKAGE_OVERLAYS += $(DEVICE_FOLDER)/overlay
 
 # Rootfs
 PRODUCT_COPY_FILES += \
