@@ -74,6 +74,23 @@ PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
     charger_res_images
 
+# Wifi
+PRODUCT_PACKAGES += \
+    calibrator \
+    crda \
+    dhcpcd.conf \
+    lib_driver_cmd_wl12xx \
+    libwpa_client \
+    hostapd \
+    regulatory.bin \
+    wpa_supplicant \
+    wlan_nvs_symlink
+
+# BT vendor lib
+# TODO: Support USB eventually
+PRODUCT_PACKAGES += \
+    libbt-vendor
+
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     sdcard \
@@ -157,4 +174,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapminfree=512k \
     dalvik.vm.heapmaxfree=2m
 
+$(call inherit-product-if-exists, hardware/ti/wlan/mac80211/wl127x-wlan-products.mk)
+$(call inherit-product-if-exists, hardware/ti/wpan/ti-wpan-products.mk)
 $(call inherit-product-if-exists, vendor/amazon/otterx/device-vendor.mk)
