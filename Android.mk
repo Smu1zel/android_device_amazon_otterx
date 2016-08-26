@@ -29,4 +29,25 @@ LOCAL_PATH := $(call my-dir)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
+#Create WLAN NVS symlink
+include $(CLEAR_VARS)
+
+LOCAL_MODULE := wlan_nvs_symlink
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := FAKE
+
+include $(BUILD_SYSTEM)/base_rules.mk
+
+$(LOCAL_BUILT_MODULE): WLAN_NVS_FILE := /data/misc/wifi/wl1271-nvs.bin
+$(LOCAL_BUILT_MODULE): WLAN_NVS_SYMLINK := $(TARGET_OUT)/etc/firmware/ti-connectivity/wl1271-nvs.bin
+$(LOCAL_BUILT_MODULE): $(LOCAL_PATH)/Android.mk
+$(LOCAL_BUILT_MODULE):
+	$(hide) echo "Symlink: $(WLAN_NVS_SYMLINK) -> $(WLAN_NVS_FILE)"
+	$(hide) mkdir -p $(dir $@)
+	$(hide) mkdir -p $(dir $(WLAN_NVS_SYMLINK))
+	$(hide) rm -rf $@
+	$(hide) rm -rf $(WLAN_NVS_SYMLINK)
+	$(hide) ln -sf $(WLAN_NVS_FILE) $(WLAN_NVS_SYMLINK)
+	$(hide) touch $@
+
 endif
