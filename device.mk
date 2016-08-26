@@ -95,6 +95,10 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     wlan_nvs_symlink
 
+# Basic GPS config
+PRODUCT_COPY_FILES += \
+    $(DEVICE_FOLDER)/gps.conf:/system/etc/gps.conf
+
 # BT vendor lib
 # TODO: Support USB eventually
 PRODUCT_PACKAGES += \
