@@ -19,6 +19,7 @@
 #include <cutils/log.h>
 
 #include <stdint.h>
+#include <stdlib.h>
 #include <string.h>
 #include <errno.h>
 #include <fcntl.h>
@@ -76,7 +77,7 @@ static int rgb_to_brightness(struct light_state_t const *state) {
 /* Previous value of brightness */
 static int brightness_prev_value = -1;
 
-static int set_light_backlight(struct light_device_t *dev,
+static int set_light_backlight(__unused struct light_device_t *dev,
 		struct light_state_t const *state) {
 	int err = 0;
 	int brightness = rgb_to_brightness(state);
@@ -96,32 +97,32 @@ static int set_light_backlight(struct light_device_t *dev,
 	return err;
 }
 
-static int set_light_keyboard(struct light_device_t* dev,
-		struct light_state_t const* state) {
+static int set_light_keyboard(__unused struct light_device_t* dev,
+		__unused struct light_state_t const* state) {
 	/* There is not keyboard on the Kindle Fire */
 	return 0;
 }
 
-static int set_light_buttons(struct light_device_t* dev,
-		struct light_state_t const* state) {
+static int set_light_buttons(__unused struct light_device_t* dev,
+		__unused struct light_state_t const* state) {
 	/* There are no lit (non-battery) buttons on the Kindle Fire */
 	return 0;
 }
 
-static int set_light_battery(struct light_device_t* dev,
-		struct light_state_t const* state) {
+static int set_light_battery(__unused struct light_device_t* dev,
+		__unused struct light_state_t const* state) {
 	/* Battery leds are handled by the kernel on the Kindle Fire */
 	return 0;
 }
 
-static int set_light_notification(struct light_device_t* dev,
-		struct light_state_t const* state) {
+static int set_light_notification(__unused struct light_device_t* dev,
+		__unused struct light_state_t const* state) {
 	/* There is no dedicated notification LED on the Blaze Tablet */
 	return 0;
 }
 
-static int set_light_attention(struct light_device_t *dev,
-		struct light_state_t const *state) {
+static int set_light_attention(__unused struct light_device_t *dev,
+		__unused struct light_state_t const *state) {
 	/* There is no dedicated attention LED on the Kindle Fire */
 	return 0;
 }
