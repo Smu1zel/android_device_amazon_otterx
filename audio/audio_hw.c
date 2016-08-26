@@ -468,8 +468,8 @@ static ssize_t read_frames(struct stream_in *in, void *buffer, ssize_t frames)
                     &frames_rd);
         } else {
             struct resampler_buffer buf = {
-                    { raw : NULL, },
-                    frame_count : frames_rd,
+                    .raw = NULL,
+                    .frame_count = frames_rd,
             };
             get_next_buffer(&in->buf_provider, &buf);
             if (buf.raw != NULL) {
@@ -668,7 +668,7 @@ do_over:
 
     /* Reduce number of channels, if necessary */
     if (audio_channel_count_from_out_mask(out_get_channels(&stream->common)) >
-                 (int)out->pcm_config.channels) {
+                 out->pcm_config.channels) {
         unsigned int i;
 
         /* Discard right channel */
