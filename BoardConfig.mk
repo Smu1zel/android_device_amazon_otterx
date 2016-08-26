@@ -115,6 +115,16 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_FOLDER)/fstab.otterx
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
+ifneq (,$(strip $(wildcard bootable/recovery-twrp/twrp.cpp)))
+RECOVERY_VARIANT := twrp
+endif
+
+# TWRP Config
+DEVICE_RESOLUTION := 1024x600
+RECOVERY_TOUCHSCREEN_SWAP_XY := true
+RECOVERY_TOUCHSCREEN_FLIP_Y := true
+TW_BRIGHTNESS_PATH := /sys/devices/platform/omap_pwm_led/leds/lcd-backlight/brightness
+TW_MAX_BRIGHTNESS := 254
 
 BOARD_SEPOLICY_DIRS += \
     $(DEVICE_FOLDER)/sepolicy
