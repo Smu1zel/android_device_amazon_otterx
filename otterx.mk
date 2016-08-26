@@ -16,7 +16,7 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 $(call inherit-product, device/amazon/otterx/device.mk)
 
-PRODUCT_NAME := full_otterx
+PRODUCT_NAME := otterx
 PRODUCT_DEVICE := otterx
 PRODUCT_BRAND := Android
 PRODUCT_MODEL := otterx
