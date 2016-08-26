@@ -122,6 +122,11 @@ PRODUCT_PACKAGES += \
     tinymix \
     tinycap \
 
+# Touchscreen config
+PRODUCT_COPY_FILES += \
+    $(DEVICE_FOLDER)/ilitek_i2c.idc:/system/usr/idc/ilitek_i2c.idc
+
+
 # Misc / Testing
 PRODUCT_PACKAGES += \
     strace \
