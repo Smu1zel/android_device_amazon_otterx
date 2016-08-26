@@ -192,7 +192,7 @@ static void omap_power_set_interactive(struct power_module *module, int on) {
     }
 }
 
-static void omap_power_hint(struct power_module *module, power_hint_t hint, void *data) {
+static void omap_power_hint(struct power_module *module, power_hint_t hint, __unused void *data) {
     struct omap_power_module *omap_device = (struct omap_power_module *) module;
     char buf[80];
     int len;
