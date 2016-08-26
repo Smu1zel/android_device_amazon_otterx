@@ -35,6 +35,10 @@ USE_CAMERA_STUB := true
 # Audio
 BOARD_USES_GENERIC_AUDIO := false
 
+# GCC
+KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
+KERNEL_TOOLCHAIN := $(shell pwd)/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8/bin
+
 # WLAN Build
 WLAN_MODULES:
 	make clean -C hardware/ti/wlan/mac80211/compat_wl12xx
