@@ -74,6 +74,15 @@ PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
     charger_res_images
 
+# WLAN NVS setup script
+PRODUCT_COPY_FILES += \
+    $(DEVICE_FOLDER)/fix-mac.sh:/system/bin/fix-mac.sh
+
+# WLAN config files
+PRODUCT_COPY_FILES += \
+    $(DEVICE_FOLDER)/TQS_S_2.6.ini:/system/etc/wifi/TQS_S_2.6.ini \
+    $(DEVICE_FOLDER)/wpa_supplicant.conf:/system/etc/wifi/wpa_supplicant.conf \
+
 # Wifi
 PRODUCT_PACKAGES += \
     calibrator \
