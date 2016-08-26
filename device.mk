@@ -16,6 +16,8 @@
 
 DEVICE_FOLDER := device/amazon/otterx
 
+$(call inherit-product-if-exists, hardware/ti/omap4/omap4.mk)
+
 #ifeq ($(TARGET_PREBUILT_KERNEL),)
 #LOCAL_KERNEL := $(DEVICE_FOLDER)-kernel/kernel
 #else

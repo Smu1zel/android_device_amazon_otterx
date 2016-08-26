@@ -20,10 +20,8 @@
 DEVICE_FOLDER := device/amazon/otterx
 TARGET_BOARD_OMAP_CPU := 4430
 
-TARGET_ARCH := arm
-TARGET_ARCH_VARIANT := armv7-a-neon
-TARGET_CPU_ABI := armeabi-v7a
-TARGET_CPU_ABI2 := armeabi
+# inherit from omap4
+-include hardware/ti/omap4/BoardConfigCommon.mk
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
