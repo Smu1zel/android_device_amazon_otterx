@@ -65,6 +65,9 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 
+BOARD_SEPOLICY_DIRS += \
+    $(DEVICE_FOLDER)/sepolicy
+
 # Enable dalvik startup with a low memory footprint
 TARGET_ARCH_LOWMEM := true
 MALLOC_SVELTE := true
