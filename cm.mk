@@ -13,5 +13,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
+$(call inherit-product, device/amazon/otterx/device.mk)
+$(call inherit-product-if-exists, vendor/cm/config/common_full_tablet_wifionly.mk)
 
-PRODUCT_MAKEFILES := $(LOCAL_DIR)/cm.mk
+PRODUCT_NAME := cm_otterx
+PRODUCT_DEVICE := otterx
+PRODUCT_BRAND := Android
+PRODUCT_MODEL := otterx
+PRODUCT_MANUFACTURER := amazon
+
+TARGET_SCREEN_WIDTH := 480
+TARGET_SCREEN_HEIGHT := 1024
+
+PRODUCT_PACKAGES += \
+    Launcher3
