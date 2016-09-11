@@ -148,7 +148,8 @@ PRODUCT_PACKAGES += \
     sh
 
 ADDITIONAL_BUILD_PROPERTIES += \
-    ro.sf.lcd_density=160
+    ro.sf.lcd_density=160 \
+    ro.sf.hwrotation=270
 
 # Set dirty regions off
 ADDITIONAL_BUILD_PROPERTIES += \
