@@ -4,3 +4,6 @@ allow init self:process execmem;
 allow init wifi_data_file:dir { write add_name };
 allow init wifi_data_file:file { write create setattr };
 
+allow init kernel:system module_request;
+allow init tmpfs:lnk_file create;
+
