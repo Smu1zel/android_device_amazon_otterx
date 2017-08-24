@@ -17,7 +17,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 $(call inherit-product, device/amazon/otterx/device.mk)
 $(call inherit-product-if-exists, vendor/cm/config/common_full_tablet_wifionly.mk)
 
-PRODUCT_NAME := cm_otterx
+PRODUCT_NAME := lineage_otterx
 PRODUCT_DEVICE := otterx
 PRODUCT_BRAND := Android
 PRODUCT_MODEL := otterx
