@@ -16,6 +16,8 @@
 
 DEVICE_FOLDER := device/amazon/otterx
 
+TARGET_BOARD_OMAP_CPU := 4430
+
 $(call inherit-product-if-exists, hardware/ti/omap4/omap4.mk)
 
 #ifeq ($(TARGET_PREBUILT_KERNEL),)
@@ -208,7 +210,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapminfree=512k \
     dalvik.vm.heapmaxfree=2m
 
-$(call inherit-product-if-exists, vendor/amazon/omap4-common/omap4-common-vendor-540_120.mk)
 $(call inherit-product-if-exists, vendor/amazon/omap4-common/omap4-common-vendor.mk)
 $(call inherit-product-if-exists, hardware/ti/wlan/mac80211/wl127x-wlan-products.mk)
 $(call inherit-product-if-exists, hardware/ti/wpan/ti-wpan-products.mk)
