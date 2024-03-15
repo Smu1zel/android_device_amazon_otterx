@@ -11,7 +11,7 @@ DIR=`dirname $FILE`
     if [ ! -d $BASE/$DIR ]; then
 mkdir -p $BASE/$DIR
     fi
-adb pull /system/$FILE $BASE/$FILE
+cp /run/media/lynden/Data/system_dump/system/$FILE $BASE/$FILE
 done
 
 ./setup-makefiles-pvr.sh
